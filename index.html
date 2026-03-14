@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soluções ANPEC — Gabaritos Comentados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2eb;
+    --ink: #1a1814;
+    --ink2: #4a4640;
+    --ink3: #8a8480;
+    --accent: #c4321a;
+    --accent2: #e8a020;
+    --border: #d6d0c4;
+    --card: #faf8f4;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-name {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 12px;
+    font-family: var(--mono);
+    color: var(--ink3);
+    letter-spacing: 0.05em;
+  }
+
+  .header-right a { color: var(--ink3); text-decoration: none; transition: color 0.2s; }
+  .header-right a:hover { color: var(--accent); }
+
+  /* ── Hero ── */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink2);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink3);
+  }
+
+  .hero-meta strong {
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    font-family: var(--serif);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  /* ── Layout principal ── */
+  .main-layout {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* ── Filtros / sidebar ── */
+  .sidebar {
+    position: sticky;
+    top: 80px;
+  }
+
+  .sidebar-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 1rem;
+  }
+
+  .filter-group {
+    margin-bottom: 2rem;
+  }
+
+  .filter-group + .filter-group {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .filter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink2);
+    cursor: pointer;
+    transition: color 0.15s;
+    text-align: left;
+  }
+
+  .filter-btn:hover { color: var(--accent); }
+
+  .filter-btn.active {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .filter-btn.active::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .filter-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink3);
+  }
+
+  /* ── Cards de provas ── */
+  .prova-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    padding: 1.5rem 0 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label:first-child { border-top: none; padding-top: 0; }
+
+  .prova-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .prova-card:hover .prova-title { color: var(--accent); }
+  .prova-card:hover .prova-arrow { opacity: 1; transform: translateX(3px); }
+
+  .prova-year {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--border);
+    min-width: 64px;
+    line-height: 1;
+    padding-top: 3px;
+    transition: color 0.15s;
+  }
+
+  .prova-card:hover .prova-year { color: var(--accent2); }
+
+  .prova-body { flex: 1; }
+
+  .prova-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+    transition: color 0.15s;
+  }
+
+  .prova-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink3);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .prova-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  .tag-micro { background: #e8f0fe; color: #1a56a0; }
+  .tag-macro { background: #fef3e2; color: #a06010; }
+  .tag-mat { background: #e8f5e9; color: #1a6b2a; }
+  .tag-novo { background: #fde8e8; color: var(--accent); }
+
+  .prova-arrow {
+    font-size: 18px;
+    color: var(--ink3);
+    opacity: 0;
+    transition: all 0.15s;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── Empty state ── */
+  .empty {
+    padding: 3rem 0;
+    color: var(--ink3);
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+
+  /* ── Search ── */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .search-wrap input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--card);
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .search-wrap input:focus { border-color: var(--ink3); }
+  .search-wrap input::placeholder { color: var(--ink3); }
+
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink3);
+    font-size: 14px;
+  }
+
+  /* ── Aviso de como adicionar PDFs ── */
+  .how-to {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.7;
+  }
+
+  .how-to-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 0.75rem;
+  }
+
+  .how-to code {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--border);
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink3);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .main-layout {
+      grid-template-columns: 1fr;
+    }
+    .sidebar {
+      position: static;
+      order: -1;
+    }
+    .hero { padding: 3rem 1.25rem 2rem; }
+    .main-layout { padding: 2rem 1.25rem; }
+    header { padding: 0 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="#">ANPEC · soluções</a>
+  <div class="header-right">
+    <a href="https://github.com/SEU-USUARIO/anpec-solucoes" target="_blank">github</a>
+    <a href="mailto:SEU-EMAIL@email.com">contato</a>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="hero-label">Repositório de estudo</p>
+  <h1>Soluções detalhadas<br>das provas <em>ANPEC</em></h1>
+  <p class="hero-desc">
+    Gabaritos comentados com desenvolvimento passo a passo de todas as questões.
+    Cada PDF cobre uma prova completa, com ênfase nas partes de microeconomia, macroeconomia e matemática.
+  </p>
+  <div class="hero-meta">
+    <div><strong id="total-provas">0</strong> provas resolvidas</div>
+    <div><strong id="total-pdfs">0</strong> PDFs disponíveis</div>
+    <div><strong>gratuito</strong> e sem cadastro</div>
+  </div>
+</section>
+
+<div class="main-layout">
+  <!-- Lista de provas -->
+  <main>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="search" placeholder="Buscar por ano ou disciplina…">
+    </div>
+    <div class="prova-list" id="prova-list"></div>
+    <p class="empty" id="empty-msg" style="display:none">Nenhuma prova encontrada.</p>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="filter-group">
+      <p class="sidebar-title">Filtrar por</p>
+      <button class="filter-btn active" data-filter="todos" onclick="setFilter('todos')">
+        Todos os anos <span class="filter-count" id="fc-todos">—</span>
+      </button>
+      <button class="filter-btn" data-filter="micro" onclick="setFilter('micro')">
+        Microeconomia <span class="filter-count" id="fc-micro">—</span>
+      </button>
+      <button class="filter-btn" data-filter="macro" onclick="setFilter('macro')">
+        Macroeconomia <span class="filter-count" id="fc-macro">—</span>
+      </button>
+      <button class="filter-btn" data-filter="mat" onclick="setFilter('mat')">
+        Matemática <span class="filter-count" id="fc-mat">—</span>
+      </button>
+    </div>
+
+    <div class="filter-group">
+      <p class="sidebar-title">Como adicionar</p>
+      <div class="how-to">
+        <p class="how-to-title">Incluir novo PDF</p>
+        <p>Adicione o arquivo em <code>pdfs/</code> e insira uma entrada no array <code>provas</code> dentro do <code>index.html</code>.</p>
+        <br>
+        <p>Formato do nome: <code>ANPEC_2024_micro.pdf</code></p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>Feito com dedicação · Soluções autorais · Distribuição livre para fins educacionais</p>
+</footer>
+
+<script>
+const provas = [
+  {
+    ano: 2024,
+    titulo: "ANPEC 2024 — Solução completa",
+    disciplinas: ["micro", "macro", "mat"],
+    pdfs: [
+      { nome: "Microeconomia", url: "pdfs/ANPEC_2024_micro.pdf", tag: "micro" },
+      { nome: "Macroeconomia", url: "pdfs/ANPEC_2024_macro.pdf", tag: "macro" },
+      { nome: "Matemática",    url: "pdfs/ANPEC_2024_mat.pdf",   tag: "mat"   },
+    ],
+    novo: true,
+  },
+  {
+    ano: 2023,
+    titulo: "ANPEC 2023 — Solução completa",
+    disciplinas: ["micro", "macro", "mat"],
+    pdfs: [
+      { nome: "Microeconomia", url: "pdfs/ANPEC_2023_micro.pdf", tag: "micro" },
+      { nome: "Macroeconomia", url: "pdfs/ANPEC_2023_macro.pdf", tag: "macro" },
+      { nome: "Matemática",    url: "pdfs/ANPEC_2023_mat.pdf",   tag: "mat"   },
+    ],
+    novo: false,
+  },
+  {
+    ano: 2022,
+    titulo: "ANPEC 2022 — Solução completa",
+    disciplinas: ["micro", "macro", "mat"],
+    pdfs: [
+      { nome: "Microeconomia", url: "pdfs/ANPEC_2022_micro.pdf", tag: "micro" },
+      { nome: "Macroeconomia", url: "pdfs/ANPEC_2022_macro.pdf", tag: "macro" },
+      { nome: "Matemática",    url: "pdfs/ANPEC_2022_mat.pdf",   tag: "mat"   },
+    ],
+    novo: false,
+  },
+  {
+    ano: 2021,
+    titulo: "ANPEC 2021 — Solução completa",
+    disciplinas: ["micro", "macro"],
+    pdfs: [
+      { nome: "Microeconomia", url: "pdfs/ANPEC_2021_micro.pdf", tag: "micro" },
+      { nome: "Macroeconomia", url: "pdfs/ANPEC_2021_macro.pdf", tag: "macro" },
+    ],
+    novo: false,
+  },
+];
+
+const tagConfig = {
+  micro: { label: "Micro",  cls: "tag-micro" },
+  macro: { label: "Macro",  cls: "tag-macro" },
+  mat:   { label: "Mat.",   cls: "tag-mat"   },
+};
+
+let currentFilter = "todos";
+let searchTerm = "";
+
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === f);
+  });
+  render();
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  searchTerm = e.target.value.toLowerCase();
+  render();
+});
+
+function render() {
+  const list = document.getElementById('prova-list');
+  const empty = document.getElementById('empty-msg');
+  list.innerHTML = '';
+
+  const filtered = provas.filter(p => {
+    const matchFilter = currentFilter === 'todos' || p.disciplinas.includes(currentFilter);
+    const matchSearch = !searchTerm
+      || String(p.ano).includes(searchTerm)
+      || p.titulo.toLowerCase().includes(searchTerm);
+    return matchFilter && matchSearch;
+  });
+
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  let lastYear = null;
+  filtered.forEach(p => {
+    const decade = Math.floor(p.ano / 5) * 5;
+    if (decade !== lastYear) {
+      const lbl = document.createElement('p');
+      lbl.className = 'section-label';
+      lbl.textContent = decade + 's';
+      list.appendChild(lbl);
+      lastYear = decade;
+    }
+
+    const pdfsToShow = currentFilter === 'todos'
+      ? p.pdfs
+      : p.pdfs.filter(d => d.tag === currentFilter);
+
+    pdfsToShow.forEach(pdf => {
+      const a = document.createElement('a');
+      a.className = 'prova-card';
+      a.href = pdf.url;
+      a.target = '_blank';
+
+      const cfg = tagConfig[pdf.tag] || {};
+      const novoTag = p.novo ? `<span class="prova-tag tag-novo">novo</span>` : '';
+
+      a.innerHTML = `
+        <div class="prova-year">${p.ano}</div>
+        <div class="prova-body">
+          <p class="prova-title">${p.titulo.replace('Solução completa', pdf.nome)}</p>
+          <div class="prova-meta">
+            <span class="prova-tag ${cfg.cls}">${cfg.label}</span>
+            ${novoTag}
+            <span>PDF · solução detalhada</span>
+          </div>
+        </div>
+        <div class="prova-arrow">→</div>
+      `;
+      list.appendChild(a);
+    });
+  });
+
+  document.getElementById('total-provas').textContent = provas.length;
+  document.getElementById('total-pdfs').textContent = provas.reduce((s, p) => s + p.pdfs.length, 0);
+
+  const counts = { todos: provas.length, micro: 0, macro: 0, mat: 0 };
+  provas.forEach(p => p.disciplinas.forEach(d => { if (counts[d] !== undefined) counts[d]++; }));
+  Object.entries(counts).forEach(([k, v]) => {
+    const el = document.getElementById('fc-' + k);
+    if (el) el.textContent = v;
+  });
+}
+
+render();
+</script>
+</body>
+</html>
